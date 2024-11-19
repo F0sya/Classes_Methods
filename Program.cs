@@ -4,24 +4,56 @@ namespace Classes_Methods
 {
     internal class Program
     {
-        static bool IsSquare(int x)
+        static void Bubble(int[] arr, int choice)
         {
-            int num = (int)Math.Sqrt(x);
-            return num * num == x;
-        }
-        static bool IsFibo(int num)
-        {
-            if(num < 0) return false;
-
-            return (IsSquare(5 * num * num + 4) || IsSquare(5 * num * num - 4)) ? true : false;
+            for(int n = arr.Length; n > 0; n--)
+            {
+                for (int i = 1; i < n; i++)
+                {
+                    if(choice == 1)
+                    {
+                        if (arr[i - 1] > arr[i])
+                        {
+                            (arr[i], arr[i - 1]) = (arr[i - 1], arr[i]);
+                        }
+                    }
+                    else if (choice == 2)
+                    {
+                        if (arr[i - 1] < arr[i])
+                        {
+                            (arr[i], arr[i - 1]) = (arr[i - 1], arr[i]);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error!");
+                        Environment.Exit(0);
+                    }
+                }
+            }
         }
         static void Main(string[] args)
         {
-            int x, y;
-            Console.Write("Enter a number:"); 
-            x = Convert.ToInt32(Console.ReadLine());
+            int[] arr = [5,8,9,1,3,4];
+            int choice;
+            Console.Write("Before sorting: ");
+            foreach (var item in arr)
+            {
+                Console.Write(item + " ");
+            }
 
-            Console.WriteLine((IsFibo(x) == true) ? "This number is a fibonacci" : "This number isn't a fibonacci");
+            Console.WriteLine("\n(1) Ascending order\n(2) Descending order");
+            choice = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("After sorting: ");
+            Bubble(arr, choice);
+            foreach (var item in arr)
+            {
+                Console.Write(item + " ");
+            }
+
+
+
 
 
 
