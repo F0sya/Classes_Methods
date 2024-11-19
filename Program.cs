@@ -4,27 +4,26 @@ namespace Classes_Methods
 {
     internal class Program
     {
-
-        static int RangeMultiply(int l, int r)
+        static bool IsSquare(int x)
         {
-            int res = 1;
+            int num = (int)Math.Sqrt(x);
+            return num * num == x;
+        }
+        static bool IsFibo(int num)
+        {
+            if(num < 0) return false;
 
-            for(int i = l; i <= r; i++)
-            {
-                res *= i;
-            }
-
-            return res;
+            return (IsSquare(5 * num * num + 4) || IsSquare(5 * num * num - 4)) ? true : false;
         }
         static void Main(string[] args)
         {
             int x, y;
-            Console.Write("Enter left limit:"); 
+            Console.Write("Enter a number:"); 
             x = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Enter right limit:"); 
-            y = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write($"Result of operation: {RangeMultiply(x,y)}");
+            Console.WriteLine((IsFibo(x) == true) ? "This number is a fibonacci" : "This number isn't a fibonacci");
+
+
 
         }
 
