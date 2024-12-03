@@ -8,10 +8,10 @@ namespace Classes_Methods.Entities
 {
     internal class City
     {
-        public string? CityName { get; set; }
-        public string? CountryName { get; set; }
-        public string? CountryCode { get; set; }
-        public int? Amount { get; set; }
+        private string? CityName { get; set; }
+        private string? CountryName { get; set; }
+        private string? CountryCode { get; set; }
+        private int? Amount { get; set; }
 
         public string[] Districts { get; set; }
         public City() {
@@ -56,13 +56,35 @@ namespace Classes_Methods.Entities
             Districts = districts;
         }
 
-        public override string ToString()
+        public void Input()
         {
-            return $"City name: {CityName}\n" +
-                $"Country name: {CountryName}\n" +
-                $"Country number code: {CountryCode}\n" +
-                $"Amount of people: {Amount}\n" +
-                $"Districts: {String.Join(", ", Districts)}";
+            Console.Write("Enter a city name: ");
+            CityName = Console.ReadLine();
+
+            Console.Write("Enter a country name: ");
+            CountryName = Console.ReadLine();
+
+            Console.Write("Enter a country code: ");
+            CountryCode = Console.ReadLine();
+
+            Console.Write("Enter a population: ");
+            Amount = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter a districts(by spaces): ");
+            Districts = Console.ReadLine().Split(' ');
+        }
+        
+        public void Print()
+        {
+            Console.WriteLine($"\nCity name: {CityName}");
+            Console.WriteLine($"Country name: {CountryName}");
+            Console.WriteLine($"Country code: {CountryCode}");
+            Console.WriteLine($"Amount of peoples: {Amount}");
+            Console.WriteLine("Districts: ");
+            foreach(string distr in Districts)
+            {
+                Console.Write(distr + " ");
+            }
         }
 
 
