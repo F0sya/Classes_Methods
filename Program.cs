@@ -7,10 +7,8 @@ namespace Classes_Methods
     {
         static void Main(string[] args)
         {
-            Coworker coworker = new Coworker();
-
-            coworker.Input();
-            coworker.Print();
+            Plane plane = new Plane("Antonov An-225 Mriya", "Antonov Serial Production Plant", 1985, "Transport");
+            plane.Print();
         }
     }
 }
