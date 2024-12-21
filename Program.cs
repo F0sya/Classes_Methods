@@ -7,27 +7,42 @@ namespace Classes_Methods
 {
     internal class Program
     {
-        static bool isPalindrome(int x)
+        static int[] Filtering(int[] original, int[] filter)
         {
+            List<int> result = new List<int>();
 
-            StringBuilder sb = new StringBuilder();
-            sb.Append(Convert.ToString(x));
-
-
-            bool check = false;
-            for(int i =0; i < sb.Length / 2; i++)
+            for(int i =0; i < original.Length; i++)
             {
-                check = (sb[i] == sb[sb.Length - 1 - i]) ? true : false;
+                if (!Array.Exists(filter,element => element == original[i]))
+                {
+                    result.Add(original[i]);
+                }
             }
-            return check;
+
+            return result.ToArray();
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter an num:");
-            int num = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter a size of a list:");
+            int size = Convert.ToInt32(Console.ReadLine());
 
-            if (isPalindrome(num)) { Console.WriteLine("It's palindrome"); }
-            else { Console.WriteLine("It's not palindrome"); }
+            int[] arr = new int[size];
+
+            for (int i = 0; i < size; i++)
+            {
+                Console.WriteLine($"Enter an {i + 1} number:");
+                arr[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            int[] filter_arr = [1,2,3,4,5];
+
+            int[] res = Filtering(arr, filter_arr);
+
+            Console.WriteLine("Result:");
+            for(int i = 0; i < res.Length; i++)
+            {
+                Console.Write($"{res[i]} ");
+            }
         }
     }
 }
