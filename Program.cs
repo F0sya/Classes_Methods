@@ -1,36 +1,33 @@
 ﻿using System.ComponentModel;
 using System.Data;
+using System.Reflection.Metadata.Ecma335;
+using System.Text;
 
 namespace Classes_Methods
 {
     internal class Program
     {
-        static void Sqr(char x)
+        static bool isPalindrome(int x)
         {
-            for (int i = 0; i < 10; i++){
-                Console.Write(x + " ");
-            }
-            Console.Write('\n');
-            for(int i = 0; i < 8; i++)
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append(Convert.ToString(x));
+
+
+            bool check = false;
+            for(int i =0; i < sb.Length / 2; i++)
             {
-                Console.Write(x);
-                for(int k = 0; k < 17; k++)
-                {
-                    Console.Write(" ");
-                }
-                Console.Write(x);
-                Console.Write('\n');
+                check = (sb[i] == sb[sb.Length - 1 - i]) ? true : false;
             }
-            for (int i = 0; i < 10; i++)
-            {
-                Console.Write(x + " ");
-            }
+            return check;
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter an char:");
-            char symbol = Convert.ToChar(Console.ReadLine());
-            Sqr(symbol);
+            Console.WriteLine("Enter an num:");
+            int num = Convert.ToInt32(Console.ReadLine());
+
+            if (isPalindrome(num)) { Console.WriteLine("It's palindrome"); }
+            else { Console.WriteLine("It's not palindrome"); }
         }
     }
 }
