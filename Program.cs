@@ -10,8 +10,8 @@ namespace Classes_Methods
     {
         static void Main(string[] args)
         {
-            Website website = new Website("mystat.itstep.org", "Mystat ITSTEP", "ITSTEP diary", "255.255.255.255");
-            website.Print();
+            Journal journal = new Journal("2007", "Journal name", "Default journal", "+3801234567", "johnapple@gmail.com");
+            journal.Print();
         }
     }
 }
