@@ -10,8 +10,8 @@ namespace Classes_Methods
     {
         static void Main(string[] args)
         {
-            Journal journal = new Journal("2007", "Journal name", "Default journal", "+3801234567", "johnapple@gmail.com");
-            journal.Print();
+            Shop shop = new Shop("Solovyova St", "Journal name", "Default shop", "+3801234567", "johnapple@gmail.com");
+            shop.Print();
         }
     }
 }

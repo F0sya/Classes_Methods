@@ -7,25 +7,25 @@ using System.Threading.Tasks;
 
 namespace Classes_Methods.Entities
 {
-    internal class Journal
+    internal class Shop
     {
-        private string Year { get; set; }
+        private string Address { get; set; }
         private string Name { get; set; }
         private string Description { get; set; }
         private string ContactPhone { get; set; }
         private string Email { get; set; }
 
-        public Journal()
+        public Shop()
         {
-            Year = "NaN";
+            Address = "NaN";
             Name = "NaN";
             Description = "NaN";
             ContactPhone = "+3800000000";
             Email = "NaN@gmail.com";
         }
-        public Journal(string year, string name, string description, string contactPhone, string email)
+        public Shop(string address, string name, string description, string contactPhone, string email)
         {
-            Year = year;
+            Address = address;
             Name = name;
             Description = description;
             ContactPhone = contactPhone;
@@ -34,11 +34,11 @@ namespace Classes_Methods.Entities
 
         public void Input()
         {
-            Console.WriteLine("Enter a name of hournal: ");
+            Console.WriteLine("Enter a name of shop: ");
             Name = Console.ReadLine();
 
-            Console.WriteLine("Enter an year: ");
-            Year = Console.ReadLine();
+            Console.WriteLine("Enter an address of shop: ");
+            Address = Console.ReadLine();
 
             Console.WriteLine("Enter a description:");
             Description = Console.ReadLine();
@@ -50,10 +50,10 @@ namespace Classes_Methods.Entities
             Email = Console.ReadLine();
         }
 
-        public void Input(string year, string name, string description, string contactPhone,string email)
+        public void Input(string address, string name, string description, string contactPhone,string email)
         {
             this.Name = name;
-            this.Year = year;
+            this.Address = address;
             this.Description = description;
             this.ContactPhone= contactPhone;
             this.Email = email;
@@ -61,9 +61,9 @@ namespace Classes_Methods.Entities
 
         public void Print()
         {
-            Console.WriteLine($"\nJournal info:\n" +
+            Console.WriteLine($"\nShop info:\n" +
                 $"Name: {Name}\n" +
-                $"Year: {Year}\n" +
+                $"Address: {Address}\n" +
                 $"Description: {Description}\n" +
                 $"Contact Phone: {ContactPhone}\n" +
                 $"Email: {Email}");
